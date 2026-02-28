@@ -3,6 +3,7 @@ import CommunityHeader from "./CommunityHeader";
 import HeroBanner from "./HeroBanner";
 import { getPhotosForAllEvents } from "../../services/eventservices/event.manage.service";
 import { supabase } from "../../services/superbase";
+import AdvertisementSlider from "./AdvertisementSlider";
 
 export default function CommunityHome() {
   const [events, setEvents] = useState([]);
@@ -20,7 +21,16 @@ export default function CommunityHome() {
     <>
       <CommunityHeader />
       {/* <HeroBanner /> */}
-
+      {/* Advertisement Slider with sample ads */}
+      <AdvertisementSlider
+        ads={[
+          {
+            image: "../../../public/images/JSTechmentorSolutions.png",
+            alt: "Advertisement 1",
+            link: "#",
+          },
+        ]}
+      />
       <main className="px-2">
         {/* About Section */}
         <section
