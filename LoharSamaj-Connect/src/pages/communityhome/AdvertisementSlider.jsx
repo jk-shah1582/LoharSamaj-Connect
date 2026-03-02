@@ -58,7 +58,7 @@ export default function AdvertisementSlider({
               transform: `translateX(-${currentIndex * 100}%)`,
             }}
           >
-            {ads.map((ad, index) => (
+            {ads.map((ad, index) => ( 
               <a
                 key={index}
                 href={ad.link}
@@ -67,7 +67,7 @@ export default function AdvertisementSlider({
                 className="min-w-full"
               >
                 <img
-                  src={ad.image}
+                  src="https://lohar-samaj-connect.vercel.app/images/JSTechmentorSolutions.png"
                   alt={ad.alt || "Advertisement"}
                   className="w-full h-40 md:h-56 object-cover"
                 />
