@@ -67,7 +67,7 @@ export default function AdvertisementSlider({
                 className="min-w-full"
               >
                 <img
-                  src="https://lohar-samaj-connect.vercel.app/images/JSTechmentorSolutions.png"
+                  src="https://lohar-samaj-connect.vercel.app/images/JSTechMentorSolutions.png"
                   alt={ad.alt || "Advertisement"}
                   className="w-full h-40 md:h-56 object-cover"
                 />
