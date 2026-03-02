@@ -25,7 +25,7 @@ export default function CommunityHome() {
       <AdvertisementSlider
         ads={[
           {
-            image: "../../../images/JSTechmentorSolutions.png",
+            image: "images/JSTechmentorSolutions.png",
             alt: "Advertisement 1",
             link: "#",
           },
