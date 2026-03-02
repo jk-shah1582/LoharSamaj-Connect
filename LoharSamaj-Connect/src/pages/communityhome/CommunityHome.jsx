@@ -25,7 +25,7 @@ export default function CommunityHome() {
       <AdvertisementSlider
         ads={[
           {
-            image: "images/JSTechmentorSolutions.png",
+            image: "https://lohar-samaj-connect.vercel.app/images/JSTechmentorSolutions.png",
             alt: "Advertisement 1",
             link: "#",
           },
