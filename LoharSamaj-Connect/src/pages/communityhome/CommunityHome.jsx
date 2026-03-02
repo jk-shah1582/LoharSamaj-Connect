@@ -3,6 +3,7 @@ import CommunityHeader from "./CommunityHeader";
 import HeroBanner from "./HeroBanner";
 import { getPhotosForAllEvents } from "../../services/eventservices/event.manage.service";
 import { supabase } from "../../services/superbase";
+import AdvertisementSlider from "./AdvertisementSlider";
 
 export default function CommunityHome() {
   const [events, setEvents] = useState([]);
@@ -20,12 +21,21 @@ export default function CommunityHome() {
     <>
       <CommunityHeader />
       {/* <HeroBanner /> */}
-
-      <main className="px-2">
+      {/* Advertisement Slider with sample ads */}
+      <AdvertisementSlider
+        ads={[
+          {
+            image: "../../../public/images/JSTechmentorSolutions.png",
+            alt: "Advertisement 1",
+            link: "#",
+          },
+        ]}
+      />
+      <main className="px-1">
         {/* About Section */}
         <section
           id="about"
-          className="py-20 bg-gradient-to-b from-gray-50 to-white"
+          className="py-5 bg-gradient-to-b from-gray-50 to-white"
         >
           <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             {/* Image Column */}
@@ -33,7 +43,7 @@ export default function CommunityHome() {
               <img
                 src="../../../images/homepage_img.jpg"
                 alt="Lohar Samaj"
-                className="w-full h-[400px] object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
+                className="w-full h-[450px] object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
               <div className="absolute inset-0 bg-black/20 rounded-2xl"></div>
             </div>
@@ -85,7 +95,7 @@ export default function CommunityHome() {
         {/* Samajik Yogdan */}
         <section
           id="yogdan"
-          className="py-20 bg-gradient-to-b from-white to-gray-100"
+          className="py-10 bg-gradient-to-b from-white to-gray-100"
         >
           <div className="max-w-7xl mx-auto px-6">
             {/* Heading */}
