@@ -55,13 +55,10 @@ export default function CommunityHome() {
                 <span className="block w-16 h-1 bg-blue-600 mt-2 rounded-full"></span>
               </h2>
 
-              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+              <p className="text-gray-600 mb-6 leading-relaxed text-base">
                 लोहार समाज हा परंपरा, कौशल्य आणि एकात्मतेसाठी ओळखला जाणारा समाज
-                आहे. कोकण विभागातील लोहार समाजाच्या सर्वांगीण विकासासाठी{" "}
-                <span className="font-semibold text-blue-600">
-                  कोकण विभागीय लोहार समाज संघाची
-                </span>{" "}
-                स्थापना दि २/४/२०२४ साली झाली. संस्थेने समाजाच्या सर्वांगीण
+                आहे.<span className="font-semibold text-blue-600">कोकण विभागीय लोहार समाज संघ मुंबई </span> ही कोकण पट्ट्यातील ५ जिल्ह्यातील जवळपास १८ तालुक्यातील लोहार समाज बांधवांची एक सामाजिक संस्था आहे.
+                नोव्हेंबर २०२३ रोजी स्थापन झालेल्या या संस्थेने अल्पावधीतच सर्व लोहार समाज बांधवांचा विश्वास संपादन केला. संस्थेने समाजाच्या सर्वांगीण
                 विकासासाठी विविध सामाजिक आणि शैक्षणिक उपक्रमांचे आयोजन केलेले
                 आहे:
               </p>
@@ -69,15 +66,15 @@ export default function CommunityHome() {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
                 <li className="flex items-center gap-2">
                   <span className="text-green-500 text-xl">✔</span>
-                  समाजातील विद्यार्थ्यांना शैक्षणिक मदत
+                  गुणवंत परंतु आर्थिक दुर्बल विद्यार्थ्यांना शैक्षिणक साहित्य वाटप
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-500 text-xl">✔</span>
-                  सामुदायिक कार्यक्रम आणि मेळावे
+                  गरजू कुटुंबांना व्यवसाय वृद्धी साठी मदत
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-500 text-xl">✔</span>
-                  गरजू कुटुंबांना सहाय्य
+                  समाजातील गुणवंत विद्यार्थी आणि गुणवंत कलावंत यांचा सत्कार
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-500 text-xl">✔</span>
@@ -115,52 +112,57 @@ export default function CommunityHome() {
               {/* Contributor Card */}
               <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition duration-500">
                 <img
-                  src="/images/default-user.png"
+                  src="/images/GaneshRaut-LSConnect.jpeg"
                   alt="Contributor"
-                  className="w-24 h-24 mx-auto rounded-full object-cover shadow-md mb-4 border-4 border-blue-100"
+                  className="w-26 h-26 mx-auto rounded-full object-cover shadow-md mb-4 border-4 border-blue-100"
                 />
-                <h3 className="text-xl font-semibold text-gray-800">
-                  श्री. अमुक नाव
+                <h3 className="text-lg font-semibold text-gray-800">
+                  माननीय लोहश्री श्री.गणेशजी पांडुरंग राऊत
                 </h3>
-                <p className="text-blue-600 text-sm mb-3">समाजसेवक</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  समाजातील विद्यार्थ्यांना शैक्षणिक मदत आणि विविध सामाजिक
-                  उपक्रमांच्या आयोजनात सक्रिय सहभाग.
+                <p className="text-blue-600 text-base mb-3 font-bold">अध्यक्ष</p>
+                <p className="text-gray-600 text-sm leading-relaxed text-justify">
+                  लोहार समाजाचे कोकण विभागीय पट्ट्यातील एक नामवंत उद्योजक.
+                  शहापूर तालुक्यात एक प्रभावी सामाजिक व्यक्तिमत्व म्हणून ओळख. 
+                  लोहार समाजाविषयी कळकळ त्याचबरोबर ते नेहमी देत असलेले आपले परखड मत यामुळे ते कोकण विभागीय लोहार समाज संघ यांचे अध्यक्ष म्हणून योग्य निवड आहेत. त्यांची आणि त्यांचे बंधू श्री निवृती राऊत आणि निलेश राऊत आणि कुटुंबीय यांची लोहार समाजावर नेहमीच कृपादृष्टी राहिली आहे.
                 </p>
               </div>
 
               {/* Contributor Card */}
               <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition duration-500">
                 <img
-                  src="/images/default-user.png"
+                  src="/images/RajeshSomvanshi-LSConnect.jpeg"
                   alt="Contributor"
                   className="w-24 h-24 mx-auto rounded-full object-cover shadow-md mb-4 border-4 border-blue-100"
                 />
-                <h3 className="text-xl font-semibold text-gray-800">
-                  सौ. अमुक नाव
+                <h3 className="text-lg font-semibold text-gray-800">
+                  माननीय लोहश्री श्री.राजेशजी सुनंदा रामचंद्र सोमवंशी
                 </h3>
-                <p className="text-blue-600 text-sm mb-3">
-                  शिक्षण कार्यकर्त्या
+                <p className="text-blue-600 text-base mb-3 font-bold">
+                  कार्याध्यक्ष
                 </p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  गरजू कुटुंबांना सहाय्य व सांस्कृतिक परंपरांचे जतन करण्यासाठी
-                  विशेष प्रयत्न.
+                <p className="text-gray-600 text-sm leading-relaxed text-justify">
+                  १९८२ पासून समाजकार्यात कार्यरत..
+ सरकरी सेवेत असतानाही विविध सामाजिक संस्थेमार्फत समाज सेवेसाठी योगदान..
+आता निवृत्ती नंतरही कोकण विभागीय लोहार समाज संघ व स्नेहराज प्रतिष्ठानामार्फत सामाजिक ॠणाची परतफेड करण्याठी आग्रही भुमिकेत रममाण..
+समाजातील गोरगरीब गरजवंतासाठी मोफत शैक्षणिक,व्यावसायिक  व वैद्यकीय मदतीचा हात..
+सामाजिक  संघटन व वैचारिक क्रांतीसाठी प्रबोधन करण्यात पुढाकार..
                 </p>
               </div>
 
               {/* Contributor Card */}
               <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition duration-500">
                 <img
-                  src="/images/default-user.png"
+                  src="/images/YashwantGaikar-LSConnect.jpeg"
                   alt="Contributor"
                   className="w-24 h-24 mx-auto rounded-full object-cover shadow-md mb-4 border-4 border-blue-100"
                 />
-                <h3 className="text-xl font-semibold text-gray-800">
-                  श्री. अमुक नाव
+                <h3 className="text-lg font-semibold text-gray-800">
+                  माननीय लोहश्री श्री. यशवंत जी गायकर 
                 </h3>
-                <p className="text-blue-600 text-sm mb-3">संघटन प्रमुख</p>
+                <p className="text-blue-600 text-base mb-3 font-bold">महासचिव</p>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  समाज एकात्मता आणि संघटन बळकटीकरणासाठी उल्लेखनीय योगदान.
+                  मुरबाड तालुक्यातील एक व्यावसायिक तसेच समाज कार्याची आवड असलेले व्यक्तिमत्व.
+                  गेले अनेक वर्षे लोहार समाज एकत्रित यावा म्हणून कार्य करीत आहेत.
                 </p>
               </div>
             </div>
