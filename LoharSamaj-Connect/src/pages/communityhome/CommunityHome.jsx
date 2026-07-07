@@ -41,7 +41,7 @@ export default function CommunityHome() {
             {/* Image Column */}
             <div className="relative group">
               <img
-                src="../../../images/homepage_img.jpg"
+                src="../../../images/Rangoli-lsconnect.png"
                 alt="Lohar Samaj"
                 className="w-full h-[450px] object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
@@ -260,8 +260,8 @@ export default function CommunityHome() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   फोन नंबर
                 </h3>
-                <p className="text-gray-600">+91 98765 43210</p>
-                <p className="text-gray-600">+91 91234 56789</p>
+                <p className="text-gray-600">११२२३३४४५५</p>
+                <p className="text-gray-600">११५५६६७७८८</p>
               </div>
 
               {/* Email Card */}
@@ -270,8 +270,7 @@ export default function CommunityHome() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   ईमेल
                 </h3>
-                <p className="text-gray-600">info@loharsamaj.org</p>
-                <p className="text-gray-600">support@loharsamaj.org</p>
+                <p className="text-gray-600">admin@kvls.com</p>
               </div>
 
               {/* Address Card */}
@@ -280,9 +279,10 @@ export default function CommunityHome() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   पत्ता
                 </h3>
-                <p className="text-gray-600">
-                  कोकण विभागीय लोहार समाज संघ कार्यालय, रत्नागिरी, महाराष्ट्र -
-                  415612
+                <p className="text-gray-600 text-justify">
+                  कोकण विभागीय लोहार समाज संघ
+                  <br />
+                  नोंदणीकृत पत्ता: कॉसमॉस हेरिटेज, आदित्य ए १०३, टिकूजी नी वाडी रोड, मानपाडा ठाणे ४००६१०
                 </p>
               </div>
             </div>
