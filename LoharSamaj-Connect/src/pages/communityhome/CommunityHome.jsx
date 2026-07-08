@@ -331,7 +331,23 @@ export default function CommunityHome() {
                 JS TechMentor Solutions
               </span>
             </p>
+            <img
+                src="./images/JSTechMentorSolutions.png"
+                alt="JSTechmentorSolutions"
+                className="w-full h-[200px] object-contain rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
+              />
+            {/* Advertisement Slider with sample ads 
+      <AdvertisementSlider
+        ads={[
+          {
+            image: "https://lohar-samaj-connect.vercel.app/images/JSTechmentorSolutions.png",
+            alt: "Advertisement 1",
+            link: "#",
+          },
+        ]}*/}
+    
           </div>
+          
         </footer>
       </main>
     </>
