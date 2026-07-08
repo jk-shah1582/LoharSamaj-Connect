@@ -78,9 +78,8 @@ export default function CommunityHome() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-500 text-xl">✔</span>
-                  सांस्कृतिक परंपरांचे जतन
+                  सांस्कृतिक परंपरांचे जतन.
                 </li>
-                
               </ul>
             </div>
           </div>
