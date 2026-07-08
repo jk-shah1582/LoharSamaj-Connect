@@ -21,7 +21,7 @@ export default function CommunityHome() {
     <>
       <CommunityHeader />
       {/* <HeroBanner /> */}
-      {/* Advertisement Slider with sample ads */}
+      {/* Advertisement Slider with sample ads
       <AdvertisementSlider
         ads={[
           {
@@ -30,22 +30,22 @@ export default function CommunityHome() {
             link: "#",
           },
         ]}
-      />
+      /> */}
       <main className="px-1">
         {/* About Section */}
         <section
           id="about"
           className="py-5 bg-gradient-to-b from-gray-50 to-white"
         >
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
             {/* Image Column */}
             <div className="relative group">
               <img
-                src="../../../images/Rangoli-lsconnect.png"
+                src="../../../images/homeImg.png"
                 alt="Lohar Samaj"
-                className="w-full h-[450px] object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
+                className="w-full h-[400px] object-contain rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
-              <div className="absolute inset-0 bg-black/20 rounded-2xl"></div>
+              
             </div>
 
             {/* Content Column */}
@@ -80,10 +80,7 @@ export default function CommunityHome() {
                   <span className="text-green-500 text-xl">✔</span>
                   सांस्कृतिक परंपरांचे जतन
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500 text-xl">✔</span>
-                  समाज एकात्मता आणि संघटन बळकटीकरण
-                </li>
+                
               </ul>
             </div>
           </div>
