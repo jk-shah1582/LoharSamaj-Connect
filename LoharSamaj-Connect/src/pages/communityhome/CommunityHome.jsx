@@ -41,9 +41,9 @@ export default function CommunityHome() {
             {/* Image Column */}
             <div className="relative group">
               <img
-                src="../../../images/homeImg.png"
+                src="../../../images/homeImg-01.png"
                 alt="Lohar Samaj"
-                className="w-full h-[400px] object-contain rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
+                className="w-full h-full object-contain rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-500"
               />
               
             </div>
