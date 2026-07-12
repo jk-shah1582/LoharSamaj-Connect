@@ -183,3 +183,53 @@ export const getDivisionOfUser = async(userId) => {
   }
   return data.user_fromdivision;
 }
+
+export const searchMembersByProfileFilters = async ({
+  occupation = "",
+  location = "",
+  education = "",
+  gender = "",
+  from = 0,
+  to = 99,
+} = {}) => {
+  try {
+    const { data, error } = await supabase
+      .from("member_profile")
+      .select(`
+        id,
+        user_id,
+        user_photo,
+        user_phone,
+        member_profile_withtranslation(member_id, user_fname, user_mname, user_lname, user_nativeplace, user_education, user_occupation, user_gender, lang_code, id)
+      `)
+      .eq("user_status", true)
+      .neq("member_profile_withtranslation.user_maritalstatus", "Married")
+      .range(from, to);
+
+    if (error) throw error;
+
+    const normalize = (value) => (value || "").toString().trim().toLowerCase();
+
+    const filteredData = (data || []).filter((member) => {
+      const translations = member.member_profile_withtranslation || [];
+
+      return translations.some((translation) => {
+        const matchesAddress = !location || normalize(translation.user_nativeplace).includes(normalize(location));
+        const matchesOccupation = !occupation || normalize(translation.user_occupation).includes(normalize(occupation));
+        const matchesGender = !gender || normalize(translation.user_gender) === normalize(gender);
+        const matchesEducation = !education || normalize(translation.user_education).includes(normalize(education));
+
+        return matchesAddress && matchesOccupation && matchesGender && matchesEducation;
+      });
+    });
+
+    return filteredData.sort((a, b) => {
+      const nameA = a.member_profile_withtranslation?.[0]?.user_fname || "";
+      const nameB = b.member_profile_withtranslation?.[0]?.user_fname || "";
+      return nameA.localeCompare(nameB);
+    });
+  } catch (err) {
+    console.error("Error searching members by profile filters:", err);
+    return [];
+  }
+};
