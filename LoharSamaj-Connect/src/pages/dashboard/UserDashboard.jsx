@@ -13,6 +13,7 @@ import EventAdminPage from "../manageusers/AdminPanel/EventAdminPage.jsx";
 import CommitteeAdminPage from "../manageusers/AdminPanel/CommitteeAdminPage.jsx";  
 import CommitteeMembers from "../manageusers/AdminPanel/CommitteeMembersPage.jsx";
 import MemberApproval from "../manageusers/AdminPanel/MemberApproval.jsx";
+import FindMatch from "../matrimony/FindMatch.jsx";
 import {
   getMemberNameById,
   getMemberIdByUserId,
@@ -73,6 +74,10 @@ export default function UserDashboard() {
     committeeMembers: {
       title: "Assign Committee Members",
       subtitle: "Form a committee by assigning members"
+    },
+    findMatch: {
+      title: "Find Match",
+      subtitle: "Find suitable matches for members"
     }
   };
 
@@ -96,6 +101,7 @@ export default function UserDashboard() {
         showEvents
         showCommittes
         showProfile
+        showFindMatch
         searchValue={searchText}
         onSearch={setSearchText}
         activeView={activeView}
@@ -133,6 +139,9 @@ export default function UserDashboard() {
           <AssignFamily onBack={() => setActiveView("profile")} />
         )}
 
+        {activeView === "findMatch" && (
+          <FindMatch />
+        )}
         {/* 👇 ADMIN PANEL RENDERING HERE */}
         {activeView === "admin" && (
           <AdminPanel setActiveView={setActiveView} />

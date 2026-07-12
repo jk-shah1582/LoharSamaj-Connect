@@ -4,6 +4,7 @@ import {
   Cog6ToothIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
+import { HeartIcon } from "@heroicons/react/24/solid";
 import { getMemberPhotoPublicUrl } from "../services/memberservice/member.profile.service.js";
 
 function SearchInput({ value, onChange }) {
@@ -56,6 +57,7 @@ export default function DashboardHeader({
   showEvents = false,
   showAdminPanel = false,
   showCommittes = false,
+  showFindMatch = false,
   searchValue = "",
   onSearch,
 
@@ -146,6 +148,14 @@ transition-all duration-200"
               label="Profile"
               active={activeView === "profile"}
               onClick={() => onChangeView("profile")}
+            />
+          )}
+          {showFindMatch && (
+            <ActionButton
+              icon={HeartIcon}
+              label="Find Match"
+              active={activeView === "findMatch"}
+              onClick={() => onChangeView("findMatch")}
             />
           )}
 
