@@ -233,3 +233,37 @@ export const searchMembersByProfileFilters = async ({
     return [];
   }
 };
+
+export const getDistinctEducations = async () => {
+  try {
+    const { data, error } = await supabase
+      .from("member_profile_withtranslation")
+      .select("user_education");
+
+    if (error) throw error;
+
+    return [...new Set((data || [])
+      .map((item) => item.user_education)
+      .filter(Boolean))];
+  } catch (err) {
+    console.error("Error fetching distinct educations:", err);
+    return [];
+  }
+};
+
+export const getDistinctOccupations = async () => {
+  try {
+    const { data, error } = await supabase
+      .from("member_profile_withtranslation")
+      .select("user_occupation");
+
+    if (error) throw error;
+
+    return [...new Set((data || [])
+      .map((item) => item.user_occupation)
+      .filter(Boolean))];
+  } catch (err) {
+    console.error("Error fetching distinct occupations:", err);
+    return [];
+  }
+};

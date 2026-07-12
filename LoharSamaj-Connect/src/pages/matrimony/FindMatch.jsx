@@ -5,6 +5,8 @@ import {
     getInactiveMemberInfo,
     getDivisionOfUser,
     searchMembersByProfileFilters,
+    getDistinctEducations,
+    getDistinctOccupations,
 } from "../../services/memberservice/member.profile.service.js";
 import { useAuth } from "../../context/AuthContext.jsx";
 import MemberDetails from "../dashboard/MemberDetails.jsx";
@@ -28,6 +30,8 @@ export default function FindMatch({ searchText = "", forApproval = false }) {
     const [page, setPage] = useState(0);
     const [hasMore, setHasMore] = useState(true);
     const [searchPerformed, setSearchPerformed] = useState(false);
+    const [educationOptions, setEducationOptions] = useState([]);
+    const [occupationOptions, setOccupationOptions] = useState([]);
 
     const observer = useRef();
     
@@ -85,6 +89,26 @@ export default function FindMatch({ searchText = "", forApproval = false }) {
         if (page === 0) return;
         fetchMembers(page);
     }, [page]);
+
+    useEffect(() => {
+        const loadDropdownOptions = async () => {
+            try {
+                const [educationData, occupationData] = await Promise.all([
+                    getDistinctEducations(),
+                    getDistinctOccupations(),
+                ]);
+
+                setEducationOptions(educationData || []);
+                setOccupationOptions(occupationData || []);
+            } catch (err) {
+                console.error("Error loading filter options:", err);
+                setEducationOptions([]);
+                setOccupationOptions([]);
+            }
+        };
+
+        loadDropdownOptions();
+    }, []);
 
     /* ---------------- INTERSECTION OBSERVER ---------------- */
     const lastMemberRef = useCallback((node) => {
@@ -154,10 +178,14 @@ export default function FindMatch({ searchText = "", forApproval = false }) {
                             className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-blue-500"
                         >
                             <option value="">Any</option>
-                            <option value="Engineer">Engineer</option>
-                            <option value="Teacher">Teacher</option>
-                            <option value="Doctor">Doctor</option>
-                            <option value="Business">Business</option>
+                            {occupationOptions
+                                .slice()
+                                .sort((a, b) => a.localeCompare(b))
+                                .map((occupation) => (
+                                    <option key={occupation} value={occupation}>
+                                        {occupation}
+                                    </option>
+                                ))}
                         </select>
                     </label>
 
@@ -186,10 +214,14 @@ export default function FindMatch({ searchText = "", forApproval = false }) {
                             className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-blue-500"
                         >
                             <option value="">Any</option>
-                            <option value="MBA">MBA</option>
-                            <option value="Bachelor">Bachelor</option>
-                            <option value="Master">Master</option>
-                            <option value="Doctorate">Doctorate</option>
+                            {educationOptions
+                                .slice()
+                                .sort((a, b) => a.localeCompare(b))
+                                .map((education) => (
+                                    <option key={education} value={education}>
+                                        {education}
+                                    </option>
+                                ))}
                         </select>
                     </label>
 
