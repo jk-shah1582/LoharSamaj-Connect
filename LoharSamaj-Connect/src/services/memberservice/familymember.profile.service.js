@@ -16,7 +16,8 @@ export const searchMembers = async (query, familyId) => {
         `user_fname.ilike.%${query}%,user_mname.ilike.%${query}%,user_lname.ilike.%${query}%`,
         { foreignTable: "member_profile_withtranslation" },
       )
-      .neq("fam_id", familyId);
+      .neq("fam_id", familyId)
+      .eq("user_status", true);
     if (error) throw error;
     console.log("searchMembers - Raw results:", data);
     return data || [];
