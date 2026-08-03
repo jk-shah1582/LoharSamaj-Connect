@@ -12,6 +12,18 @@ export async function updateProfile(table, id, updatedData) {
   return data;
 }
 
+export async function updateFamProfile(table, memberId, updatedData) {
+  const { data, error } = await supabase
+    .from(table)
+    .update(updatedData)
+    .eq("id", memberId)
+    .select(); // returns updated row(s)
+
+  if (error) throw error;
+
+  return data;
+}
+
 export async function checkFamilyHeadExists(memberId, isHead=true) {
   // Step 1: Get current member's family ID
   const { data: member, error: memberError } = await supabase
@@ -110,7 +122,7 @@ export async function updateLangProfile(
     .select(); // returns updated row(s)
 
   if (error) throw error;
-
+  
   return data;
 }
 
