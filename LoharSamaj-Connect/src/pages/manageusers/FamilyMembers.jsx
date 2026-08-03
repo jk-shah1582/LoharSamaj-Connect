@@ -3,43 +3,67 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { getFamilyIdByMemberId } from "../../services/memberservice/member.profile.service";
 import MemberDetails from "../dashboard/MemberDetails.jsx";
+import EditFamMember from "./EditFamMember.jsx";
 
 export default function FamilyMembers({profileId=null}) {
   const [familyMemberList, setFamilyMemberList] = useState([]);
   const { userId, memberId } = useAuth();
   const [selectedMember, setSelectedMember] = useState(null);
+  const [selectedAction, setSelectedAction] = useState(null);
+  const [familyId, setFamilyId] = useState(null);
+
+  const fetchFamilyMembers = async () => {
+    console.log("InSide FamilyMemebers - profileID:", profileId);
+    try {
+      let familyIdValue = "";
+      if (profileId) {
+        familyIdValue = await getFamilyIdByMemberId(profileId);
+      } else {
+        familyIdValue = await getFamilyIdByMemberId(memberId);
+      }
+      setFamilyId(familyIdValue);
+      const members = await getFamilyMembers(familyIdValue, userId);
+      setFamilyMemberList(members);
+      console.log("FamilyMembers - Fetched family members:", members);
+    } catch (error) {
+      console.error("Error fetching family members:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchFamilyMembers = async () => {
-      try {
-        let familyId="";
-        if(profileId)
-        {
-          familyId = await getFamilyIdByMemberId(profileId); 
-        }
-        else{
-          familyId = await getFamilyIdByMemberId(memberId);
-        }
-        const members = await getFamilyMembers(familyId, userId);
-        setFamilyMemberList(members);
-        console.log("FamilyMembers - Fetched family members:", members);
-      } catch (error) {
-        console.error("Error fetching family members:", error);
-      }
-    };
-
     if (memberId && userId) {
       fetchFamilyMembers();
     }
-  }, []);
+  }, [memberId, userId, profileId]);
 
-   /* ✅ IF A Family member IS SELECTED → SHOW MEMBERS VIEW */
+   /* ✅ IF A Family member IS SELECTED → SHOW THE RIGHT VIEW */
     if (selectedMember) {
+      if (selectedAction === "edit") {
+        console.log("FamilyMembers - Selected member for edit:", selectedMember);
+          return (
+            <EditFamMember
+              famMember={selectedMember}
+              onCancel={() => {
+                setSelectedMember(null);
+                setSelectedAction(null);
+              }}
+              onSave={async () => {
+                await fetchFamilyMembers();
+                setSelectedMember(null);
+                setSelectedAction(null);
+              }}
+            />
+          );
+      }
+
       console.log("FamilyMembers - Selected member ID for details view:", selectedMember);
       return (
         <MemberDetails
-          id={selectedMember} // pass full object
-          onBack={() => setSelectedMember(null)}
+          id={selectedMember}
+          onBack={() => {
+            setSelectedMember(null);
+            setSelectedAction(null);
+          }}
         />
       );
     }
@@ -53,8 +77,7 @@ export default function FamilyMembers({profileId=null}) {
         </div>
       ) : (
         <div className="grid gap-3 sm:grid-cols-1 lg:grid-cols-1">
-          {familyMemberList.map((member) => (
-            
+          {familyMemberList.map((member) =>(
             <div
               key={member.id}
              // onClick={() => setSelectedMember(member.id)}
@@ -96,10 +119,21 @@ export default function FamilyMembers({profileId=null}) {
                 <button 
                 className="px-3 py-1.5 text-xs font-medium rounded-lg bg-red-50 text-blue-600 hover:bg-blue-100 transition"
                 onClick={() => {
-                  setSelectedMember(member.id)
+                  setSelectedMember(member.id);
+                  setSelectedAction("view");
                 }}>
                   View
                 </button>
+                {profileId == null && (
+                <button 
+                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-red-50 text-blue-600 hover:bg-blue-100 transition"
+                onClick={() => {
+                  setSelectedMember(member);
+                  setSelectedAction("edit");
+                }}>
+                  Edit
+                </button>
+                )}
                 {profileId == null && (
                 <button 
                 className="px-3 py-1.5 text-xs font-medium rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition"

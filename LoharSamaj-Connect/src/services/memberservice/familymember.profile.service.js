@@ -80,7 +80,8 @@ export const getFamilyMembers = async (familyId, userId) => {
     *,
     member_profile_withtranslation(*)
   `)
-  .eq("fam_id", familyId);
+  .eq("fam_id", familyId)
+  .eq("user_status", true);
 
   if (error) {
     console.error(error);
