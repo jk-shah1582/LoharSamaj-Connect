@@ -267,3 +267,20 @@ export const getDistinctOccupations = async () => {
     return [];
   }
 };
+
+export const getUserApprovalStatus = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("member_profile")
+      .select("user_status")
+      .eq("user_id", userId)
+      .single();
+
+    if (error) throw error;
+
+    return data ? data.user_status : null;
+  } catch (err) {
+    console.error("Error fetching user approval status:", err);
+    return null;
+  }
+};
