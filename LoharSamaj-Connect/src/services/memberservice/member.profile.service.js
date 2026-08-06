@@ -203,7 +203,7 @@ export const searchMembersByProfileFilters = async ({
         member_profile_withtranslation(member_id, user_fname, user_mname, user_lname, user_nativeplace, user_education, user_occupation, user_gender, lang_code, id)
       `)
       .eq("user_status", true)
-      .neq("member_profile_withtranslation.user_maritalstatus", "Married")
+      .eq("user_matrimony_service_status", true)
       .range(from, to);
 
     if (error) throw error;
